@@ -16,3 +16,4 @@ zzz_config
 pppd-soname-hack.patch
 replace-vendored-hash-functions.patch
 CVE-2024-58250.patch
+CVE-2022-4603.patch
