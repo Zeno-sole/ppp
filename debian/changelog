@@ -1,3 +1,22 @@
+ppp (2.5.2-1+1deepin1) unstable; urgency=medium
+
+  * Restore deepin patches on top of 2.5.2-1+1.
+  * All previously present deepin patches are already included in the
+    upstream version or are not applicable to the new upstream release:
+    - CVE-2022-4603.patch: already fixed in upstream 2.5.2 source code
+      (pppdump/pppdump.c already has the bounds check)
+    - CVE-2024-58250.patch: already fixed in upstream 2.5.2 (passprompt
+      plugin removed, build system migrated to autotools)
+    - 010_scripts_README.diff: target file (scripts/README) removed upstream
+    - 011_scripts_redialer.diff: target file (scripts/redialer) removed upstream
+    - no_crypt_hack: crypt() calls already guarded by HAVE_CRYPT_H in upstream,
+      debian/rules handles udeb by stripping HAVE_CRYPT_H
+    - pppdump_use_zlib: targets Makefile.linux which does not exist in upstream
+      (autotools build system)
+    - replace-vendored-hash-functions.patch: upstream 2.5.2 already uses libcrypto
+      for hash functions via crypto.c/ppp-md5.c/ppp-md4.c/ppp-sha1.c
+
+ -- lichenggang <lichenggang@uniontech.com>  Fri, 17 Jul 2026 23:49:55 +0800
 ppp (2.5.2-1+1) unstable; urgency=medium
 
   * Upload to unstable.
